@@ -96,7 +96,6 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
                     panicButton.setFreezesText(false);
                     panicButton.startAnimation(pulse);
                     icon.startAnimation(pulse);
-                    enviarMensaje();
                     startPanicService();
                 }else
                 {
@@ -122,33 +121,6 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
                 menu.close(true);
                 break;
         }
-    }
-
-    private void enviarMensaje(){
-
-        try {
-
-            SugarContext.init(this);
-            List<Telefono> telefonos = Telefono.listAll(Telefono.class);
-            SugarContext.terminate();
-
-
-          for (Telefono telefono:telefonos) {
-
-              SmsManager smsManager = SmsManager.getDefault();
-              smsManager.sendTextMessage(telefono.getTelefono(), null, session.getMensaje(), null, null);
-              Toast.makeText(getApplicationContext(), "SMS Sent!",
-                      Toast.LENGTH_LONG).show();
-          }
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(),
-                    "SMS faild, please try again later!",
-                    Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
-
-
-
     }
 
     private void startPanicService()

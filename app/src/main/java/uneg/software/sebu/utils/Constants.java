@@ -14,4 +14,5 @@ public class Constants {
     public static final String FOLDER_IMAGES = "sebu";
     public static final long INTERVAL_PHOTOS = 5*1000;
     public static final int ID_SERVICE = 43434;
+    public static final String AREA_TRANSPORTE = "9";
 }

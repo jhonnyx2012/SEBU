@@ -11,9 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Length;
+import com.mobsandgeeks.saripaar.annotation.Min;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.orm.SugarContext;
 
@@ -37,7 +41,8 @@ public class TelefonoDialogFragment extends DialogFragment implements View.OnCli
     @InjectView(R.id.almacenar_telefonos)
     Button almacenarTelefonos;
     @InjectView(R.id.telefono)
-    @NotEmpty
+    @NotEmpty(message = "Ingrese un numero de telefono")
+    @Length(min=11,max=11,message = "El número debe contener 11 digitos")
     CustomFontEditText telefono;
     @InjectView(R.id.telefonos)
     RecyclerView lista;
@@ -73,9 +78,7 @@ public class TelefonoDialogFragment extends DialogFragment implements View.OnCli
         SugarContext.terminate();
         adapter = new TelefonosAdapter(getActivity(), telefonos, this);
         lista.setAdapter(adapter);
-
     }
-
 
     public static TelefonoDialogFragment newInstance() {
         return new TelefonoDialogFragment();
@@ -92,13 +95,9 @@ public class TelefonoDialogFragment extends DialogFragment implements View.OnCli
     }
 
     private void guardarTelefono(){
-
-
         SugarContext.init(getActivity());
         new Telefono(telefono.getText().toString().trim()).save();
         SugarContext.terminate();
-
-
     }
 
 
@@ -111,12 +110,18 @@ public class TelefonoDialogFragment extends DialogFragment implements View.OnCli
 
     @Override
     public void onValidationFailed(List<ValidationError> errors) {
-
+        for (ValidationError error : errors) {
+            View view = error.getView();
+            String message = error.getCollatedErrorMessage(getActivity());
+            // Display error messages ;)
+            if (view instanceof EditText) {
+                ((EditText) view).setError(message);
+            }
+        }
     }
 
     @Override
     public void onItemClick(Telefono item) {
-
         SugarContext.init(getActivity());
         item.delete();
         SugarContext.terminate();

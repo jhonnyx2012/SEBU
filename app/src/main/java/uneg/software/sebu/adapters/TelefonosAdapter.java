@@ -72,7 +72,7 @@ public class TelefonosAdapter extends RecyclerView.Adapter<TelefonosAdapter.View
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.inject(this, itemView);
-            itemView.setOnClickListener(this);
+            eliminarTelefono.setOnClickListener(this);
         }
 
         public void setItem(Telefono item) {

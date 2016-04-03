@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Length;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.util.List;
@@ -32,7 +33,8 @@ public class MensajeDialogFragment extends DialogFragment implements View.OnClic
     @InjectView(R.id.cambiar_mensaje)
     Button cambiar_mensaje;
     @InjectView(R.id.mensaje)
-    @NotEmpty
+    @NotEmpty(message = "Ingrese un mensaje")
+    @Length(min=10,max=210,message = "Debe contener entre 10 y 210 caracteres")
     CustomFontEditText mensaje;
     private Validator validator;
     UserSessionManager session;

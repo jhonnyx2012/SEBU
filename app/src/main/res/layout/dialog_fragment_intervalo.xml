@@ -46,7 +46,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/mensaje"
                     app:npMinValue="5"
-                    app:npMaxValue="10"
+                    app:npMaxValue="30"
                     app:npSeparatorColor="@color/colorAccent"
                     app:npTextColor="@color/colorPrimary"
                     app:npTextSize="25sp"/>

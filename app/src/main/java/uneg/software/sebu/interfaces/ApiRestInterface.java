@@ -28,6 +28,17 @@ public interface ApiRestInterface {
             @Field("foto") String foto,
             Callback<BaseResponse> callback);
 
+
+    @FormUrlEncoded
+    @POST("/alarma/subirFotoAlarma")
+    void subirFotoAlarma(
+            @Field("foto") String foto,
+            @Field("id") String id,
+            @Field("lat") String lat,
+            @Field("lon") String lon,
+            Callback<BaseResponse> callback);
+
+
     @FormUrlEncoded
     @POST("/alarma")
     void sendAlarma(
@@ -37,6 +48,7 @@ public interface ApiRestInterface {
             @Field("lon") String lon,
             @Field("area") String area,
             @Field("fotos") String[] fotos,
+            @Field("estatus") int status,
             Callback<Alarma> callback);
 
     @FormUrlEncoded

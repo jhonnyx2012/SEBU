@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             customfont:fontName="AvenirMedium.otf"
-            android:text="Cambio de Mensaje de Emergencia"
+            android:text="Mensaje de Emergencia"
             android:textColor="#00263e"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
         <LinearLayout
