@@ -21,12 +21,12 @@
         android:layout_marginRight="30dp">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/imageView4"
             android:scaleType="fitXY"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_sebu_logotipo"
             android:adjustViewBounds="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="20dp"
