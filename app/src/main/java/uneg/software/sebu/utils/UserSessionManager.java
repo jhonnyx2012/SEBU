@@ -37,7 +37,7 @@ public class UserSessionManager
         editor = pref.edit();
     }
 
-    public String getIntervalo(){return pref.getString(KEY_INTERVALO, "");}
+    public String getIntervalo(){return pref.getString(KEY_INTERVALO, "5");}
 
     public void setIntervalo(String intervalo){
 

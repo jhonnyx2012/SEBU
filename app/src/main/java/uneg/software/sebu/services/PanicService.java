@@ -86,7 +86,6 @@ public class PanicService extends Service implements LocationListener {
         {
             if(customHandler!=null)
             {
-                showMessage("RUNNING");
                 takePhoto(PanicService.this);
                 customHandler.postDelayed(this, Utils.getInterval(session.getIntervalo()));
             }

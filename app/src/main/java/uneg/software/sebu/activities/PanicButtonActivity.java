@@ -1,6 +1,8 @@
 package uneg.software.sebu.activities;
 
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
@@ -31,9 +33,10 @@ import uneg.software.sebu.models.bd.Telefono;
 import uneg.software.sebu.services.PanicService;
 import uneg.software.sebu.fragments.IntervaloDialogFragment;
 import uneg.software.sebu.fragments.RecuperarDialogFragment;
+import uneg.software.sebu.utils.GPSManager;
 import uneg.software.sebu.utils.UserSessionManager;
 
-public class PanicButtonActivity extends AppCompatActivity implements View.OnClickListener {
+public class PanicButtonActivity extends AppCompatActivity implements View.OnClickListener{
     @InjectView(R.id.cerrarSesion)
     FloatingActionButton cerrarSesion;
     @InjectView(R.id.intervaloReporte)
@@ -69,7 +72,7 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
         cerrarSesion.setOnClickListener(this);
         panicButton.setOnClickListener(this);
         panicButton.setFreezesText(true);
-
+        GPSManager.askGPS(this);
         intervaloReporte.setOnClickListener(this);
         mensajeEmergencia.setOnClickListener(this);
         numeroEmergencia.setOnClickListener(this);

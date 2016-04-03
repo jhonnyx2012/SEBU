@@ -11,6 +11,7 @@ import android.location.LocationManager;
 import android.widget.CheckBox;
 
 import uneg.software.sebu.R;
+import uneg.software.sebu.activities.PanicButtonActivity;
 
 
 /**
@@ -107,6 +108,7 @@ public class GPSManager {
          }
     }
 
+
     public Location obtainLastKnowLocation()
     {
         if (locationManager != null) {
@@ -119,6 +121,33 @@ public class GPSManager {
         }
 
         return location;
+    }
+
+    public static void showWarning(String title, String message, final Activity a)
+    {
+        AlertDialog mAlertDialog;
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(a);
+        alertDialogBuilder.setTitle(title).setMessage(message);
+        alertDialogBuilder.setCancelable(false).setPositiveButton("Si",
+                new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        encenderGPS(a);
+                    }
+                });
+        alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                //activity.finish();
+                //getMyLocation();
+            }
+        });
+        mAlertDialog = alertDialogBuilder.create();
+        mAlertDialog.show();
     }
 
     public void showWarning(String title, String message)
@@ -148,6 +177,12 @@ public class GPSManager {
         mAlertDialog.show();
     }
 
+        private  void encenderGPS()
+        {
+            Intent settingsIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            activity.startActivityForResult(settingsIntent, REQUEST_CODE);
+        }
+
     public void showWarningGPS(String title, String message)
     {
         AlertDialog mAlertDialog;
@@ -172,10 +207,10 @@ public class GPSManager {
     }
 
 
-    private void encenderGPS()
+    private static void encenderGPS(Activity a)
     {
         Intent settingsIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-        activity.startActivityForResult(settingsIntent, REQUEST_CODE);
+        a.startActivityForResult(settingsIntent, REQUEST_CODE);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data)
@@ -193,5 +228,15 @@ public class GPSManager {
 
     public Location getLocation() {
         return location;
+    }
+
+    public static void askGPS(Activity a) {
+        LocationManager locationManager = (LocationManager) a.getSystemService(Context.LOCATION_SERVICE);
+        boolean isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        boolean isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        if (!isGPSEnabled && !isNetworkEnabled)
+        {
+            showWarning("Ubicacion desactivada","El Sistema de Emergencias de Buses UNEG necesita de la ubicación para informar al centro de control con mas detalle",a);
+        }
     }
 }
