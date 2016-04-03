@@ -96,9 +96,7 @@
     </item>
 
     <item >
-
-        <item xmlns:android="http://schemas.android.com/apk/res/android"
-            android:color="#d2d2d2">
+        <layer-list>
             <item>
                 <shape android:shape="oval">
                     <solid android:color="#d2d2d2" />
@@ -109,8 +107,7 @@
                     <solid android:color="#b9b9b9" />
                 </shape>
             </item>
-        </item>
-
+        </layer-list>
     </item>
 
 
