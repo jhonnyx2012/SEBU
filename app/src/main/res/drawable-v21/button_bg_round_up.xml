@@ -97,19 +97,19 @@
 
     <item >
 
-        <item xmlns:android="http://schemas.android.com/apk/res/android"
-            android:color="#d2d2d2">
-            <item>
+        <ripple xmlns:android="http://schemas.android.com/apk/res/android"
+            android:color="@color/colorAccentDark">
+            <item android:id="@android:id/mask">
                 <shape android:shape="oval">
-                    <solid android:color="#d2d2d2" />
+                    <solid android:color="@color/colorAccentDark" />
                 </shape>
             </item>
             <item>
                 <shape android:shape="oval">
-                    <solid android:color="#b9b9b9" />
+                    <solid android:color="@color/colorAccent" />
                 </shape>
             </item>
-        </item>
+        </ripple>
 
     </item>
 

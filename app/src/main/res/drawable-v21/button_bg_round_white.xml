@@ -97,9 +97,9 @@
 
     <item >
 
-        <item xmlns:android="http://schemas.android.com/apk/res/android"
+        <ripple xmlns:android="http://schemas.android.com/apk/res/android"
             android:color="#d2d2d2">
-            <item>
+            <item android:id="@android:id/mask">
                 <shape android:shape="oval">
                     <solid android:color="#d2d2d2" />
                 </shape>
@@ -109,7 +109,7 @@
                     <solid android:color="#b9b9b9" />
                 </shape>
             </item>
-        </item>
+        </ripple>
 
     </item>
 
