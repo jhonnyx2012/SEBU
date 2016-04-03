@@ -13,25 +13,27 @@ import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.util.List;
 
-import biz.kasual.materialnumberpicker.MaterialNumberPicker;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import uneg.software.sebu.R;
 import uneg.software.sebu.utils.UserSessionManager;
+import uneg.software.sebu.views.CustomFontEditText;
 
 
 /**
  * Created by Jhonny on 01-08-2015.
  */
-public class IntervaloDialogFragment extends DialogFragment implements View.OnClickListener, Validator.ValidationListener {
-    public static final String TAG = IntervaloDialogFragment.class.getSimpleName();
+public class MensajeDialogFragment extends DialogFragment implements View.OnClickListener, Validator.ValidationListener {
+    public static final String TAG = MensajeDialogFragment.class.getSimpleName();
     @InjectView(R.id.cambiar_mensaje)
-    Button cambiar_intervalo;
+    Button cambiar_mensaje;
     @InjectView(R.id.mensaje)
-    MaterialNumberPicker intervalo;
+    @NotEmpty
+    CustomFontEditText mensaje;
     private Validator validator;
     UserSessionManager session;
 
@@ -45,26 +47,26 @@ public class IntervaloDialogFragment extends DialogFragment implements View.OnCl
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dialog_fragment_intervalo, null);
+        View view = inflater.inflate(R.layout.dialog_fragment_mensaje, null);
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         setCancelable(true);
         ButterKnife.inject(this, view);
         session=new UserSessionManager(getActivity());
 
-        if(!session.getIntervalo().equals("")){
+        if(!session.getMensaje().equals("")){
 
-            intervalo.setValue(Integer.parseInt(session.getIntervalo()));
+            mensaje.setText(session.getMensaje());
         }
 
-        cambiar_intervalo.setOnClickListener(this);
+        cambiar_mensaje.setOnClickListener(this);
         validator = new Validator(this);
         validator.setValidationListener(this);
         return view;
     }
 
 
-    public static IntervaloDialogFragment newInstance() {
-        return new IntervaloDialogFragment();
+    public static MensajeDialogFragment newInstance() {
+        return new MensajeDialogFragment();
     }
 
     @Override
@@ -72,8 +74,7 @@ public class IntervaloDialogFragment extends DialogFragment implements View.OnCl
         switch (view.getId())
         {
             case R.id.cambiar_mensaje:
-                session.setIntervalo(String.valueOf(intervalo.getValue()));
-                this.dismiss();
+                validator.validate();
                 break;
         }
     }
@@ -102,7 +103,7 @@ public class IntervaloDialogFragment extends DialogFragment implements View.OnCl
 
     private void solicitarCambio()
     {
-        session.setIntervalo(String.valueOf(intervalo.getValue()));
+        session.setgetMensaje(mensaje.getText().toString());
         this.dismiss();
 
     }

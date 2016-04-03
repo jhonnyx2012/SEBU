@@ -21,6 +21,7 @@ public class UserSessionManager
     private static final String KEY_ITEM = "item";
     private static final String KEY_NIVEL_DES = "nivel_des";
     private static final String KEY_INTERVALO = "INTERVALO";
+    private static final String KEY_MENSAJE = "MENSAJE";
     SharedPreferences pref;
     Editor editor;
     Context _context;
@@ -42,6 +43,16 @@ public class UserSessionManager
 
 
         editor.putString(KEY_INTERVALO, intervalo);
+        editor.apply();
+        editor.commit();
+    }
+
+    public String getMensaje(){return pref.getString(KEY_MENSAJE, "Boton de panico activado!");}
+
+    public void setgetMensaje(String mensaje){
+
+
+        editor.putString(KEY_MENSAJE, mensaje);
         editor.apply();
         editor.commit();
     }

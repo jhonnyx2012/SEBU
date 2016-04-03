@@ -17,11 +17,17 @@ import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.orm.SugarContext;
+
+import java.util.Iterator;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import uneg.software.sebu.R;
+import uneg.software.sebu.fragments.MensajeDialogFragment;
 import uneg.software.sebu.fragments.TelefonoDialogFragment;
+import uneg.software.sebu.models.bd.Telefono;
 import uneg.software.sebu.services.PanicService;
 import uneg.software.sebu.fragments.IntervaloDialogFragment;
 import uneg.software.sebu.fragments.RecuperarDialogFragment;
@@ -103,14 +109,17 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
 
             case R.id.intervaloReporte:
                 showDialogFragment(IntervaloDialogFragment.newInstance());
+                menu.close(true);
                 break;
 
             case R.id.mensajeEmergencia:
-               // showDialogFragment(?.newInstance());
+                showDialogFragment(MensajeDialogFragment.newInstance());
+                menu.close(true);
                 break;
 
             case R.id.numeroEmergencia:
                 showDialogFragment(TelefonoDialogFragment.newInstance());
+                menu.close(true);
                 break;
         }
     }
@@ -119,10 +128,18 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
 
         try {
 
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage("04265947179", null, "Alerta de boton de panico", null, null);
-            Toast.makeText(getApplicationContext(), "SMS Sent!",
-                    Toast.LENGTH_LONG).show();
+            SugarContext.init(this);
+            List<Telefono> telefonos = Telefono.listAll(Telefono.class);
+            SugarContext.terminate();
+
+
+          for (Telefono telefono:telefonos) {
+
+              SmsManager smsManager = SmsManager.getDefault();
+              smsManager.sendTextMessage(telefono.getTelefono(), null, session.getMensaje(), null, null);
+              Toast.makeText(getApplicationContext(), "SMS Sent!",
+                      Toast.LENGTH_LONG).show();
+          }
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(),
                     "SMS faild, please try again later!",

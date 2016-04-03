@@ -105,6 +105,7 @@ public class TelefonoDialogFragment extends DialogFragment implements View.OnCli
     @Override
     public void onValidationSucceeded() {
         guardarTelefono();
+        telefono.setText("");
         refresh();
     }
 
