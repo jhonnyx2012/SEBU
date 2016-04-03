@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:customfont="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.PanicButtonActivity"
+    android:background="@color/colorAccentDark">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#00000000"
+        android:visibility="visible">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="5dp"
+            android:paddingRight="10dp">
+
+            <uneg.software.sebu.views.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                customfont:fontName="AvenirDemi.otf"
+                android:id="@+id/nombre"
+                android:text="Jhonny Barrios"
+                android:layout_gravity="center_vertical|right"
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+            <uneg.software.sebu.views.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                customfont:fontName="AvenirDemi.otf"
+                android:id="@+id/username"
+                android:text="jhonnyx"
+                android:textSize="10dp"
+                android:layout_gravity="center_vertical|right"
+                android:textColor="#d2d2d2" />
+            <uneg.software.sebu.views.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                customfont:fontName="AvenirDemi.otf"
+                android:id="@+id/nivel"
+                android:text="nivel"
+                android:textSize="10dp"
+                android:layout_gravity="center_vertical|right"
+                android:textColor="#d2d2d2" />
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" >
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="305dp"
+                    android:layout_height="305dp"
+                    android:background="@drawable/button_bg_round_white"
+                    android:layout_gravity="center"
+                    android:visibility="visible" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <Button
+                    android:id="@+id/panicButton"
+                    android:layout_width="280dp"
+                    android:layout_height="280dp"
+                    android:background="@drawable/button_bg_round_up"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    android:textSize="80dp"
+                    android:textColor="#f5f5f5" />
+
+            </FrameLayout>
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/icon"
+            android:src="@drawable/emergency1"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:layout_marginBottom="10dp" />
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:menu_colorNormal="#eaeaea"
+            app:menu_colorPressed="#898989"
+            app:menu_colorRipple="#808080"
+            app:menu_icon="@drawable/config"
+            app:menu_labels_position="left"
+            app:menu_backgroundColor="#bf212121"
+            app:menu_fab_size="mini"
+            app:menu_openDirection="up"
+            android:layout_gravity="right|top"
+            android:padding="16dp">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_label="Intervalo de reportes"
+                app:fab_colorNormal="@color/colorAccent"
+                app:fab_colorPressed="@color/colorAccentDark"
+                android:src="@drawable/clock"
+                android:id="@+id/fab"
+                app:fab_size="mini"/>
+
+            <com.github.clans.fab.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_label="Mensaje de emergencia"
+                app:fab_colorNormal="@color/colorAccent"
+                app:fab_colorPressed="@color/colorAccentDark"
+                app:fab_size="mini"
+                android:src="@drawable/message"/>
+
+            <com.github.clans.fab.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_label="Numeros de emergencia"
+                app:fab_colorNormal="@color/colorAccent"
+                app:fab_colorPressed="@color/colorAccentDark"
+                app:fab_size="mini"
+                android:src="@drawable/phone"/>
+
+            <com.github.clans.fab.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cerrarSesion"
+                app:fab_label="Cerrar Sesión"
+                app:fab_colorNormal="@color/colorAccent"
+                app:fab_colorPressed="@color/colorAccentDark"
+                app:fab_size="mini"
+                android:src="@drawable/password"/>
+
+            </com.github.clans.fab.FloatingActionMenu>
+    </FrameLayout>
+
+</FrameLayout>
