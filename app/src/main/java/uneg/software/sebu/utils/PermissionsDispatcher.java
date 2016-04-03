@@ -11,7 +11,7 @@ import uneg.software.sebu.activities.LoginActivity;
 public class PermissionsDispatcher {
     private static final int REQUEST = 1;
 
-    private static final String[] PERMISSIONS = new String[] {"android.permission.WRITE_EXTERNAL_STORAGE","android.permission.ACCESS_COARSE_LOCATION","android.permission.ACCESS_FINE_LOCATION","android.permission.CAMERA"};
+    private static final String[] PERMISSIONS = new String[] {"android.permission.WRITE_EXTERNAL_STORAGE","android.permission.ACCESS_COARSE_LOCATION","android.permission.ACCESS_FINE_LOCATION","android.permission.CAMERA","android.permission.SYSTEM_ALERT_WINDOW"};
 
     private PermissionsDispatcher() {
     }

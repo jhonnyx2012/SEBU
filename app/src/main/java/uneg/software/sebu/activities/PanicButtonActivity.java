@@ -19,6 +19,7 @@ import com.github.clans.fab.FloatingActionMenu;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import uneg.software.sebu.R;
+import uneg.software.sebu.services.PanicService;
 import uneg.software.sebu.fragments.IntervaloDialogFragment;
 import uneg.software.sebu.fragments.RecuperarDialogFragment;
 import uneg.software.sebu.utils.UserSessionManager;
@@ -46,7 +47,6 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
     @InjectView(R.id.icon)
     ImageView icon;
     private Animation pulse;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,11 +87,13 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
                     panicButton.setFreezesText(false);
                     panicButton.startAnimation(pulse);
                     icon.startAnimation(pulse);
+                    startPanicService();
                 }else
                 {
                     panicButton.setFreezesText(true);
                     panicButton.clearAnimation();
                     icon.clearAnimation();
+                    stopPanicService();
                 }
                 break;
 
@@ -107,6 +109,14 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
               // showDialogFragment(?.newInstance());
                 break;
         }
+    }
+
+    private void startPanicService()
+    {
+        startService(new Intent(this, PanicService.class));
+    }
+    private void stopPanicService() {
+        stopService(new Intent(this, PanicService.class));
     }
 
     private void showDialogFragment(DialogFragment dialogFragment) {

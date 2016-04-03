@@ -11,4 +11,7 @@ public class Constants {
     public static final int AREA_CERCA = 4;
     public static final int AREA_PATIO = 5;
     public static final int AREA_ESTACIONAMIENTO = 6;
+    public static final String FOLDER_IMAGES = "sebu";
+    public static final long INTERVAL_PHOTOS = 5*1000;
+    public static final int ID_SERVICE = 43434;
 }

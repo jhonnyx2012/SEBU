@@ -36,4 +36,8 @@ public class Utils {
         }
         return new File(uri.getPath());
     }
+
+    public static long getInterval(String intervalo) {
+        return Long.valueOf(intervalo)*1000;
+    }
 }
