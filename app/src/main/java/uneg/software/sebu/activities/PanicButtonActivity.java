@@ -6,12 +6,14 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -19,6 +21,7 @@ import com.github.clans.fab.FloatingActionMenu;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import uneg.software.sebu.R;
+import uneg.software.sebu.fragments.TelefonoDialogFragment;
 import uneg.software.sebu.services.PanicService;
 import uneg.software.sebu.fragments.IntervaloDialogFragment;
 import uneg.software.sebu.fragments.RecuperarDialogFragment;
@@ -87,6 +90,7 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
                     panicButton.setFreezesText(false);
                     panicButton.startAnimation(pulse);
                     icon.startAnimation(pulse);
+                    enviarMensaje();
                     startPanicService();
                 }else
                 {
@@ -106,9 +110,28 @@ public class PanicButtonActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case R.id.numeroEmergencia:
-              // showDialogFragment(?.newInstance());
+                showDialogFragment(TelefonoDialogFragment.newInstance());
                 break;
         }
+    }
+
+    private void enviarMensaje(){
+
+        try {
+
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage("04265947179", null, "Alerta de boton de panico", null, null);
+            Toast.makeText(getApplicationContext(), "SMS Sent!",
+                    Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(),
+                    "SMS faild, please try again later!",
+                    Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+
+
+
     }
 
     private void startPanicService()
