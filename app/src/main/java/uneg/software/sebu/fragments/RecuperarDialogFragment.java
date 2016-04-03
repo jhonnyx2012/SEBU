@@ -102,6 +102,7 @@ public class RecuperarDialogFragment extends DialogFragment implements View.OnCl
         }
     }
 
+
     private void solicitarCambio()
     {
         mostrarEspera("Solicitando cambio de contraseña...");
