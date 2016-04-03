@@ -28,4 +28,6 @@ dependencies {
     compile 'com.mobsandgeeks:android-saripaar:2.0.3'
     compile 'com.github.hotchemi:permissionsdispatcher:2.1.0'
     compile files('libs/commons-io-2.4.jar')
+    compile 'com.github.satyan:sugar:1.4'
+    compile 'biz.kasual:materialnumberpicker:1.2.0'
 }

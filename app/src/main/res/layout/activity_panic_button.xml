@@ -126,7 +126,7 @@
                 app:fab_colorNormal="@color/colorAccent"
                 app:fab_colorPressed="@color/colorAccentDark"
                 android:src="@drawable/clock"
-                android:id="@+id/fab"
+                android:id="@+id/intervaloReporte"
                 app:fab_size="mini"/>
 
             <com.github.clans.fab.FloatingActionButton
@@ -136,12 +136,14 @@
                 app:fab_colorNormal="@color/colorAccent"
                 app:fab_colorPressed="@color/colorAccentDark"
                 app:fab_size="mini"
+                android:id="@+id/mensajeEmergencia"
                 android:src="@drawable/message"/>
 
             <com.github.clans.fab.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_label="Numeros de emergencia"
+                android:id="@+id/numeroEmergencia"
                 app:fab_colorNormal="@color/colorAccent"
                 app:fab_colorPressed="@color/colorAccentDark"
                 app:fab_size="mini"

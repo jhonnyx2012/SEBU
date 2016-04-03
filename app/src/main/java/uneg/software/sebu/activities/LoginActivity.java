@@ -22,7 +22,7 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import uneg.software.sebu.R;
-import uneg.software.sebu.fragments.RecuperarDialogFragment;
+import uneg.software.sebu.fragments.IntervaloDialogFragment;
 import uneg.software.sebu.interfaces.ApiRestInterface;
 import uneg.software.sebu.models.LoginResponse;
 import uneg.software.sebu.utils.PermissionsDispatcher;
@@ -90,7 +90,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
                 validator.validate();
                 break;
             case R.id.olvide:
-                showDialogFragment(RecuperarDialogFragment.newInstance());
+                showDialogFragment(IntervaloDialogFragment.newInstance());
                 break;
         }
     }

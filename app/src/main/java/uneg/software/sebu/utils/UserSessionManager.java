@@ -20,6 +20,7 @@ public class UserSessionManager
     private static final String KEY_NIVEL = "nivel";
     private static final String KEY_ITEM = "item";
     private static final String KEY_NIVEL_DES = "nivel_des";
+    private static final String KEY_INTERVALO = "INTERVALO";
     SharedPreferences pref;
     Editor editor;
     Context _context;
@@ -35,6 +36,15 @@ public class UserSessionManager
         editor = pref.edit();
     }
 
+    public String getIntervalo(){return pref.getString(KEY_INTERVALO, "");}
+
+    public void setIntervalo(String intervalo){
+
+
+        editor.putString(KEY_INTERVALO, intervalo);
+        editor.apply();
+        editor.commit();
+    }
 
     /**
      * Clear session details
