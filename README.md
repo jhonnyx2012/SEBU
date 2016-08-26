@@ -1,29 +1,15 @@
 # SEBU #
 
-El Sistema de Emergencia para Buses UNEG (SEBU), es una aplicación que funciona como botón de pánico, 
+El Sistema de Emergencia para Buses UNEG (SEBU), es una aplicación que funciona como botón de pánico, con tan solo presionar el botón se hará saber a un centro de control datos necesarios para obtener ayuda lo antes posible.
 
-### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Características ###
 
-### How do I get set up? ###
+* Envío de SMS de emergencia a números previamente configurados.
+* Envío en tiempo real de ubicación.
+* Envío de fotos cada N minutos (previamente configurado), aún cuando la pantalla del teléfono esté apagada y el app en background.
+* Comunicación con el Centro de Control del Sistema de Seguridad UNEG.
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### Screenshots:###
 
-### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
