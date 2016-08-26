@@ -1,6 +1,6 @@
-# README #
+# SEBU #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+El Sistema de Emergencia para Buses UNEG (SEBU), es una aplicación que funciona como botón de pánico, 
 
 ### What is this repository for? ###
 
