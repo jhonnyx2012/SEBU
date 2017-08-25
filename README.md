@@ -10,6 +10,6 @@ El Sistema de Emergencia para Buses UNEG (SEBU), es una aplicación que funciona
 * Envío de fotos cada N minutos (previamente configurado), aún cuando la pantalla del teléfono esté apagada y el app en background.
 * Comunicación con el Centro de Control del Sistema de Seguridad UNEG.
 
-### Screenshots:###
+### Screenshots ###
 
-![Main](https://bitbucket-assetroot.s3.amazonaws.com/repository/AbBAXa/2177734905-IMG-20160403-WA0007.jpg?Signature=QRzIWvH0bQWe0Pwpuk6teRjinNo%3D&Expires=1485182567&AWSAccessKeyId=AKIAIVFPT2YJYYZY3H4A&versionId=Ihu0fWHrO1nInVDq9wAUaU9rnvT.n33c)
+![Main](https://bitbucket-assetroot.s3.amazonaws.com/repository/AbBAXa/2177734905-IMG-20160403-WA0007.jpg?Signature=e1k%2FwL%2F7N5My1ndP4HatTK8Ro78%3D&Expires=1503627102&AWSAccessKeyId=AKIAIQWXW6WLXMB5QZAQ&versionId=Ihu0fWHrO1nInVDq9wAUaU9rnvT.n33c)
